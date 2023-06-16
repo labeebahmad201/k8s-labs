@@ -11,11 +11,9 @@ async function bootstrap() {
 const numCPUs = os.cpus();
 
 if(cluster.isPrimary){
-  console.log('isPrimary')
   for(const cpu of numCPUs){  
       cluster.fork();
   }
 } else {
-  console.log('!isPrimary');
   bootstrap();
 }
